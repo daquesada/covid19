@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
-
+import Main from './Componets/Main'
 function App() {
   return (
     <div>
-      first init
+      <Main/>
     </div>
   );
 }
