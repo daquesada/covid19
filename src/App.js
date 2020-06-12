@@ -5,7 +5,10 @@ import Main from './Componets/Main'
 function App() {
   return (
     <div>
-      <Main/>
+      <div className="container">
+        <h1 className="display-4 text-center title ">COVID-19</h1>
+        <Main />
+      </div>
     </div>
   );
 }
