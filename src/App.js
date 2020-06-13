@@ -6,8 +6,9 @@ function App() {
   return (
     <div>
       <div className="container">
-        <h1 className="display-4 text-center title ">COVID-19</h1>
+        <h1 className=" title ">COVID-19 <span className="text-muted subtitle">Global</span> </h1>
         <Main />
+        <h6 className="text-muted text-center mt-5">Made by me</h6>
       </div>
     </div>
   );
