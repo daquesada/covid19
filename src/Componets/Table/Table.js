@@ -1,15 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Graphic from '../Graphic/Graphic'
+import './Table.css'
 
 export default function Table(props) {
-    let countries = props;
-    const onClickRow = (country)=>{
-        console.log(country)
-    }
+    const [country, setCountry] = useState('us')
+
+    let countries = props.countries;
+    
     return (
-        <div>
-            <div classNAme="mb-2"style={{ height: '400px', overflow: 'auto' }}>
+        <div >
+            <div>
+                <Graphic country={country} />
+            </div>
+            <div className="mb-2 mt-5" style={{ height: '400px', overflow: 'auto'}}>
                 <table className="table table-hover" >
-                    <thead style={{position:'sticky',top:'0', backgroundColor:'#fff7f7'}}>
+                    <thead style={{position:'sticky',top:'0'}}>
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Country</th>
@@ -21,7 +26,7 @@ export default function Table(props) {
                     <tbody  >
                         {
                             countries.map((country, index) =>
-                                <tr key={country.code} onClick={()=>onClickRow(country.name)}>
+                                <tr key={country.code} onClick={()=>setCountry(country.code)}>
                                     <th scope="row">{index + 1}</th>
                                     <td>{country.name}</td>
                                     <td>{new Intl.NumberFormat().format(country.latest_data.confirmed)}</td>

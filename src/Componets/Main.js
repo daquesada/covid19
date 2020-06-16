@@ -3,7 +3,7 @@ import { useHttpRequest } from '../Hooks/HttpRequest'
 import Card from './Card/Card';
 import config from '../config/config'
 import Loading from './Loading';
-import Table from './Table';
+import Table from './Table/Table';
 
 export default function Main() {
     let res = useHttpRequest(config.API_URL + 'countries');
@@ -14,14 +14,13 @@ export default function Main() {
     var confirmed = 0;
     var recovered = 0;
 
-    timeline.data.forEach((item, index) => {
-        if (index === 0) {
-            deaths = item.deaths;
-            recovered = item.recovered;
-            confirmed = item.confirmed;
-            index = timeline.data.length-1
-        }
-    });
+    
+    for (const item of timeline.data) {
+        deaths = item.deaths;
+        recovered = item.recovered;
+        confirmed = item.confirmed;
+        break;
+    }
     if (res.loading || timeline.loading) {
         return (
             <div className="container mx-auto mt-auto text-center">
@@ -42,15 +41,11 @@ export default function Main() {
                     <Card title='Deaths' color='#ff3b3b' number={new Intl.NumberFormat().format(deaths)} />
                 </div>
             </div>
-            <div className="row justify-content-center align-items-center">
-                <div className="col col-md-8" >
-                    <Card title={'This is a test'} />
-                </div>
-            </div>
-            <div className="row" >
+            <div className="row mt-3" >
                 {/* <div className='col col-md-12 mt-3 mx-auto'></div> */}
-                <div className="col">
-                    <Card table={Table(countries)} title={'Reported cases by country'}/>
+                <div className="col" >
+                    <Card table={<Table countries={countries}/>} title={'Reported cases by country'}/>
+                    
                 </div>
 
                 {/* <div style={{ height: '200px', overflow: 'auto' }}>...</div> */}
