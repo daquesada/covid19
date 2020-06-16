@@ -8,7 +8,7 @@ function App() {
       <div className="container">
         <h1 className=" title ">COVID-19 <span className="text-muted subtitle">Global</span> </h1>
         <Main />
-        <h6 className="text-muted text-center mt-5">Made by me</h6>
+        <h6 className="text-muted text-center mt-3">Made by <a href="https://github.com/daquesada/">daquesada</a> </h6>
       </div>
     </div>
   );
