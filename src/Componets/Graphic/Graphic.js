@@ -17,7 +17,10 @@ export default function Graphic(props) {
         var data=[]
         aux.forEach((element, index) => {
             let stats = {
-                name: index, confirmed: element.confirmed, recovered: element.recovered, deaths: element.deaths,
+                name: index,
+                confirmed: element.confirmed, 
+                recovered: element.recovered,
+                deaths: element.deaths,
             }
             data.push(stats);
         });

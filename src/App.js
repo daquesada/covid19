@@ -8,7 +8,12 @@ function App() {
       <div className="container">
         <h1 className=" title ">COVID-19 <span className="text-muted subtitle">Global</span> </h1>
         <Main />
-        <h6 className="text-muted text-center mt-3">Made by <a href="https://github.com/daquesada/">daquesada</a> </h6>
+        <div className="text-center ">
+          <code style={{ color: 'grey' }}>Made by 
+            <a href="https://github.com/daquesada/covid19">daquesada</a> / <a href="https://about-corona.net/">API</a> /
+            <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports"> Data Source</a>
+          </code>
+        </div>
       </div>
     </div>
   );
