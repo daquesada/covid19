@@ -12,7 +12,7 @@ export default function Graphic(props) {
     const [name, setName] = useState('')
     const res = useHttpRequest(config.API_URL+'countries/'+props.country);
     let timeline = res.data.timeline === undefined ? [] : res.data.timeline;
-    var aux = timeline.sort((a, b) => a.confirmed - b.confirmed);
+    let aux = timeline.sort((a, b) => a.confirmed - b.confirmed);
     useEffect(()=>{
         var data=[]
         aux.forEach((element, index) => {
@@ -26,7 +26,7 @@ export default function Graphic(props) {
         });
         setName(res.data.name);
         setDaily(data);
-    },[props,res])
+    },[props,res, aux])
     
     return (
         <div style={{ width: '100%', height: 300 }}>
