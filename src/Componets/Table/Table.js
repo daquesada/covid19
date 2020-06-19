@@ -3,18 +3,18 @@ import Graphic from '../Graphic/Graphic'
 import './Table.css'
 
 export default function Table(props) {
-    const [country, setCountry] = useState('us')
+    const [country, setCountry] = useState('us');
 
     let countries = props.countries;
-    
+
     return (
         <div >
             <div>
                 <Graphic country={country} />
             </div>
-            <div className="mb-2 mt-5" style={{ height: '400px', overflow: 'auto'}}>
+            <div className="mb-2 mt-5" style={{ height: '400px', overflow: 'auto' }}>
                 <table className="table table-hover" >
-                    <thead style={{position:'sticky',top:'0'}}>
+                    <thead style={{ position: 'sticky', top: '0' }}>
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Country</th>
@@ -26,7 +26,7 @@ export default function Table(props) {
                     <tbody  >
                         {
                             countries.map((country, index) =>
-                                <tr key={country.code} onClick={()=>setCountry(country.code)}>
+                                <tr key={country.code} onClick={() => setCountry(country.code)}>
                                     <th scope="row">{index + 1}</th>
                                     <td>{country.name}</td>
                                     <td>{new Intl.NumberFormat().format(country.latest_data.confirmed)}</td>

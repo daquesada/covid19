@@ -1,5 +1,6 @@
 thead{
     background-color: #fff7f7;
+    position:-webkit-sticky
 }
 ::-webkit-scrollbar {
     width: 2px;     /* Tamaño del scroll en vertical */

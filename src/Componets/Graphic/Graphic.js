@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-    LineChart, Line, CartesianGrid, Tooltip, Legend, ResponsiveContainer
+    LineChart, XAxis, Line, CartesianGrid, Tooltip, Legend, ResponsiveContainer
 } from 'recharts';
 import { useHttpRequest } from '../../Hooks/HttpRequest';
 import config from '../../config/config';
@@ -11,13 +11,14 @@ export default function Graphic(props) {
     const [daily, setDaily] = useState([])
     const [name, setName] = useState('')
     const res = useHttpRequest(config.API_URL+'countries/'+props.country);
-    let timeline = res.data.timeline === undefined ? [] : res.data.timeline;
-    let aux = timeline.sort((a, b) => a.confirmed - b.confirmed);
+    
     useEffect(()=>{
         var data=[]
-        aux.forEach((element, index) => {
+        let timeline = res.data.timeline === undefined ? [] : res.data.timeline;
+        let aux = timeline.sort((a, b) => a.confirmed - b.confirmed);
+        aux.forEach((element) => {
             let stats = {
-                name: index,
+                name: element.date,
                 confirmed: element.confirmed, 
                 recovered: element.recovered,
                 deaths: element.deaths,
@@ -26,7 +27,7 @@ export default function Graphic(props) {
         });
         setName(res.data.name);
         setDaily(data);
-    },[props,res, aux])
+    },[res])
     
     return (
         <div style={{ width: '100%', height: 300 }}>
@@ -41,6 +42,7 @@ export default function Graphic(props) {
                     }}
                 >
                     <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="name" />
                     <Tooltip />
                     <Legend />
                     <Line type="monotone" dataKey="confirmed" stroke="#e9ec1e" strokeWidth={2} dot={false}/>
