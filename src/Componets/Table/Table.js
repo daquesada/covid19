@@ -19,6 +19,7 @@ export default function Table(props) {
                             <th scope="col">#</th>
                             <th scope="col">Country</th>
                             <th scope="col">Confirmed</th>
+                            <th scope="col">New Confirmed</th>
                             <th scope="col">Recovered</th>
                             <th scope="col">Deaths</th>
                         </tr>
@@ -30,6 +31,7 @@ export default function Table(props) {
                                     <th scope="row">{index + 1}</th>
                                     <td>{country.name}</td>
                                     <td>{new Intl.NumberFormat().format(country.latest_data.confirmed)}</td>
+                                    <td>{new Intl.NumberFormat().format(country.today.confirmed)}</td>
                                     <td>{country.latest_data.recovered !== 0 ? new Intl.NumberFormat().format(country.latest_data.recovered) : 'N/A'}</td>
                                     <td>{country.latest_data.deaths !== 0 ? new Intl.NumberFormat().format(country.latest_data.deaths) : 'N/A'}</td>
                                 </tr>

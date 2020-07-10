@@ -10,8 +10,8 @@ function App() {
         <Main />
         <div className="text-center ">
           <code style={{ color: 'grey' }}>Made by 
-            <a href="https://github.com/daquesada/covid19"> daquesada</a> / <a href="https://about-corona.net/">API</a> /
-            <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports"> Data Source</a>
+            <a href="https://github.com/daquesada/covid19">daquesada</a> / <a href="https://about-corona.net/">API</a> /
+            <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports">Data Source</a>
           </code>
         </div>
       </div>

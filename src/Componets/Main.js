@@ -10,7 +10,7 @@ export default function Main() {
     let res = useHttpRequest(config.API_URL + 'countries');
     // let countries = res.data.sort((a, b) => b.latest_data.confirmed - a.latest_data.confirmed);
     let timeline = useHttpRequest(config.API_URL + 'timeline');
-    
+
     const [deaths, setDeaths] = useState(0);
     const [confirmed, setConfirmed] = useState(0);
     const [recovered, setRecovered] = useState(0);
@@ -18,7 +18,7 @@ export default function Main() {
     // var deaths = 0;
     // var confirmed = 0;
     // var recovered = 0;
-    useEffect(()=>{
+    useEffect(() => {
         let countries = res.data.sort((a, b) => b.latest_data.confirmed - a.latest_data.confirmed);
         setCountries(countries);
         for (const item of timeline.data) {
@@ -27,8 +27,8 @@ export default function Main() {
             setConfirmed(item.confirmed);
             break;
         }
-    },[res,timeline])
-    
+    }, [res, timeline])
+
     // for (const item of timeline.data) {
     //     deaths = item.deaths;
     //     recovered = item.recovered;
@@ -58,8 +58,10 @@ export default function Main() {
             <div className="row mt-3" >
                 {/* <div className='col col-md-12 mt-3 mx-auto'></div> */}
                 <div className="col" >
-                    <Card table={<Table countries={countries}/>} title={'Reported cases by country'}/>
-                    
+                    {/* <Card table={<Table countries={countries} />} title={'Reported cases by country'} /> */}
+                    <Card title={'Reported cases by country'}>
+                        <Table countries={countries} />
+                    </Card>
                 </div>
 
                 {/* <div style={{ height: '200px', overflow: 'auto' }}>...</div> */}
