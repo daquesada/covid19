@@ -3,10 +3,10 @@ import Graphic from '../Graphic/Graphic'
 import './Table.css'
 
 export default function Table(props) {
-    const [country, setCountry] = useState('us');
+    const [country, setCountry] = useState(props.topCountry);
 
     let countries = props.countries;
-
+    
     return (
         <div >
             <div>
@@ -18,16 +18,16 @@ export default function Table(props) {
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Country</th>
-                            <th scope="col">Confirmed</th>
-                            <th scope="col">New Confirmed</th>
-                            <th scope="col">Recovered</th>
-                            <th scope="col">Deaths</th>
+                            <th scope="col">Total Cases</th>
+                            <th scope="col">New Cases</th>
+                            <th scope="col">Total Recovered</th>
+                            <th scope="col">Total Deaths</th>
                         </tr>
                     </thead>
                     <tbody  >
                         {
                             countries.map((country, index) =>
-                                <tr key={country.code} onClick={() => setCountry(country.code)}>
+                                <tr key={country.code} onClick={() => {setCountry(country.code)}} >
                                     <th scope="row">{index + 1}</th>
                                     <td>{country.name}</td>
                                     <td>{new Intl.NumberFormat().format(country.latest_data.confirmed)}</td>

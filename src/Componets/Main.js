@@ -8,36 +8,24 @@ import { useState } from 'react';
 
 export default function Main() {
     let res = useHttpRequest(config.API_URL + 'countries');
-    // let countries = res.data.sort((a, b) => b.latest_data.confirmed - a.latest_data.confirmed);
     let timeline = useHttpRequest(config.API_URL + 'timeline');
 
     const [deaths, setDeaths] = useState(0);
     const [confirmed, setConfirmed] = useState(0);
     const [recovered, setRecovered] = useState(0);
     const [countries, setCountries] = useState([])
-    // var deaths = 0;
-    // var confirmed = 0;
-    // var recovered = 0;
+    
     useEffect(() => {
         let countries = res.data.sort((a, b) => b.latest_data.confirmed - a.latest_data.confirmed);
         setCountries(countries);
-        for (const item of timeline.data) {
-            setDeaths(item.deaths);
-            setRecovered(item.recovered);
-            setConfirmed(item.confirmed);
-            break;
-        }
-    }, [res, timeline])
+        setDeaths(timeline.data[0]?timeline.data[0].deaths:0);
+        setRecovered(timeline.data[0]?timeline.data[0].recovered:0);
+        setConfirmed(timeline.data[0]?timeline.data[0].confirmed:0);
+    }, [res, timeline]);
 
-    // for (const item of timeline.data) {
-    //     deaths = item.deaths;
-    //     recovered = item.recovered;
-    //     confirmed = item.confirmed;
-    //     break;
-    // }
     if (res.loading || timeline.loading) {
         return (
-            <div className="container mx-auto mt-auto text-center">
+            <div className="mx-auto mt-auto text-center">
                 <Loading />
             </div>
         )
@@ -56,17 +44,11 @@ export default function Main() {
                 </div>
             </div>
             <div className="row mt-3" >
-                {/* <div className='col col-md-12 mt-3 mx-auto'></div> */}
                 <div className="col" >
-                    {/* <Card table={<Table countries={countries} />} title={'Reported cases by country'} /> */}
                     <Card title={'Reported cases by country'}>
-                        <Table countries={countries} />
+                        <Table countries={countries} topCountry='us'/>
                     </Card>
                 </div>
-
-                {/* <div style={{ height: '200px', overflow: 'auto' }}>...</div> */}
-
-
             </div>
         </div>
     )

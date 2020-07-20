@@ -22,3 +22,8 @@ thead{
 ::-webkit-scrollbar-thumb:active {
     background-color: #fa0000;
 }
+
+tr:focus:hover{
+    background-color: #ccc;
+    border-color: #fa0000;
+}

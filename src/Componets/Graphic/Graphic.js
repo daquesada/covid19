@@ -13,7 +13,7 @@ export default function Graphic(props) {
     const res = useHttpRequest(config.API_URL+'countries/'+props.country);
     
     useEffect(()=>{
-        var data=[]
+        var data=[];
         let timeline = res.data.timeline === undefined ? [] : res.data.timeline;
         let aux = timeline.sort((a, b) => a.confirmed - b.confirmed);
         aux.forEach((element) => {
