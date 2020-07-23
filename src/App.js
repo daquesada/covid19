@@ -9,7 +9,7 @@ function App() {
       <Main />
       <br/>
       <div className="text-center">
-        <code style={{ color: 'grey',fontSize:'0.4cm' }}>
+        <code style={{ color: 'grey'}}>
           <div>
           Made by <a href="https://github.com/daquesada/covid19">daquesada</a> / <a href="https://about-corona.net/">API</a> / <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports">Data Source</a>
           </div>

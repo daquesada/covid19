@@ -1,5 +1,5 @@
 thead{
-    background-color: #dfe4ea;
+    background-color: #fff7f7;
     position:-webkit-sticky
 }
 ::-webkit-scrollbar {
@@ -31,7 +31,7 @@ th.sticky-header {
     position: sticky;
     top: 0;
     z-index: 10;
-    background-color: #dfe4ea;
+    background-color: #fff7f7;
     /*To not have transparent background.
     background-color: white;*/
   }
