@@ -1,5 +1,5 @@
 thead{
-    background-color: #fff7f7;
+    background-color: #dfe4ea;
     position:-webkit-sticky
 }
 ::-webkit-scrollbar {
@@ -27,3 +27,11 @@ tr:focus:hover{
     background-color: #ccc;
     border-color: #fa0000;
 }
+th.sticky-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: #dfe4ea;
+    /*To not have transparent background.
+    background-color: white;*/
+  }

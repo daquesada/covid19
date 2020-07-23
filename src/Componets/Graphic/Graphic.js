@@ -45,7 +45,7 @@ export default function Graphic(props) {
                     <XAxis dataKey="name" />
                     <Tooltip />
                     <Legend />
-                    <Line type="monotone" dataKey="confirmed" stroke="#e9ec1e" strokeWidth={2} dot={false}/>
+                    <Line type="monotone" dataKey="confirmed" stroke="#fa983a" strokeWidth={2} dot={false}/>
                     <Line type="monotone" dataKey="recovered" stroke="#4cff16" strokeWidth={2} dot={false}/>
                     <Line type="monotone" dataKey="deaths" stroke="#ff3b3b" strokeWidth={2} dot={false}/>
                 </LineChart>

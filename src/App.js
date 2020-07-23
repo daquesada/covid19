@@ -10,7 +10,12 @@ function App() {
       <br/>
       <div className="text-center">
         <code style={{ color: 'grey',fontSize:'0.4cm' }}>
+          <div>
           Made by <a href="https://github.com/daquesada/covid19">daquesada</a> / <a href="https://about-corona.net/">API</a> / <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports">Data Source</a>
+          </div>
+          <div>
+          Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+          </div>
         </code>
       </div>
       <br />

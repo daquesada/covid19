@@ -9,19 +9,19 @@ export default function Table(props) {
     
     return (
         <div >
-            <div>
+            <div className="mb-5">
                 <Graphic country={country} />
             </div>
-            <div className="mb-2 mt-5" style={{ height: '400px', overflow: 'auto' }}>
+            <div className="mb-2 mt-3" style={{ height: '400px', overflow: 'auto' }}>
                 <table className="table table-hover" >
                     <thead style={{ position: 'sticky', top: '0' }}>
                         <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Country</th>
-                            <th scope="col">Total Cases</th>
-                            <th scope="col">New Cases</th>
-                            <th scope="col">Total Recovered</th>
-                            <th scope="col">Total Deaths</th>
+                            <th className="sticky-header" scope="col">#</th>
+                            <th className="sticky-header" scope="col">Country</th>
+                            <th className="sticky-header" scope="col">Total Cases</th>
+                            <th className="sticky-header" scope="col">New Cases</th>
+                            <th className="sticky-header" scope="col">Total Recovered</th>
+                            <th className="sticky-header" scope="col">Total Deaths</th>
                         </tr>
                     </thead>
                     <tbody  >
