@@ -1,16 +1,16 @@
-import React from 'react'
+import React, { useContext,useState,useEffect } from 'react'
 import {
     LineChart, XAxis, Line, CartesianGrid, Tooltip, Legend, ResponsiveContainer
 } from 'recharts';
 import { useHttpRequest } from '../../Hooks/HttpRequest';
 import config from '../../config/config';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { context } from '../Context/Country'
 
-export default function Graphic(props) {
+export default function Graphic() {
     const [daily, setDaily] = useState([])
-    const [name, setName] = useState('')
-    const res = useHttpRequest(config.API_URL+'countries/'+props.country);
+    const [name, setName] = useState('');
+    const {countryName} = useContext(context)
+    const res = useHttpRequest(config.API_URL+'countries/'+countryName);
     
     useEffect(()=>{
         var data=[];

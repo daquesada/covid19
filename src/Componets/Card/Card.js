@@ -1,8 +1,8 @@
 import React from 'react'
 import './Card.css'
 // style="width: 18rem;"
-export default function Card(props) {
-    let color = props.color
+export function Card(props) {
+    const color = props.color
     return (
         <div className="card" >
             <div className="card-body">

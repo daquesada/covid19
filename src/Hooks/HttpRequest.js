@@ -7,7 +7,6 @@ export function useHttpRequest(API_URL) {
         
         async function getRequest(){
             const res = await axios.get(API_URL);
-            
             setData({data:res.data.data, loading:false});
         }
         getRequest();

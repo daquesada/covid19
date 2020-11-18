@@ -1,16 +1,17 @@
-import React, { useState } from 'react'
-import Graphic from '../Graphic/Graphic'
-import './Table.css'
+import React from 'react';
+import { useContext } from 'react';
+import Graphic from '../Graphic/Graphic';
+import './Table.css';
+import { context } from '../Context/Country';
 
-export default function Table(props) {
-    const [country, setCountry] = useState(props.topCountry);
+export default function Table() {
+    const { setCountryName, countries } = useContext(context);
 
-    let countries = props.countries;
-    
+
     return (
         <div >
             <div className="mb-5">
-                <Graphic country={country} />
+                <Graphic/>
             </div>
             <div className="mb-2 mt-3" style={{ height: '400px', overflow: 'auto' }}>
                 <table className="table table-hover" >
@@ -27,7 +28,7 @@ export default function Table(props) {
                     <tbody  >
                         {
                             countries.map((country, index) =>
-                                <tr key={country.code} onClick={() => {setCountry(country.code)}} >
+                                <tr key={country.code} onClick={() => { setCountryName(country.code) }} >
                                     <th scope="row">{index + 1}</th>
                                     <td>{country.name}</td>
                                     <td>{new Intl.NumberFormat().format(country.latest_data.confirmed)}</td>
