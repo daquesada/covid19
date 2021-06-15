@@ -33,6 +33,7 @@ function updateDynamicCache(dynamicCache, request, response) {
 }
 
 //install
+// eslint-disable-next-line no-restricted-globals
 self.addEventListener("install", (e) => {
   const cacheInmutable = caches
     .open(INMUTABLE_CACHE)
@@ -46,7 +47,7 @@ self.addEventListener("install", (e) => {
 
   e.waitUntil(Promise.all([cacheInmutable, cacheStatic]));
 });
-
+// eslint-disable-next-line no-restricted-globals
 self.addEventListener("activate", (e) => {
   const response = caches.keys().then((keys) => {
     keys.forEach((key) => {
@@ -62,6 +63,7 @@ self.addEventListener("activate", (e) => {
   e.waitUntil(response);
 });
 
+// eslint-disable-next-line no-restricted-globals
 self.addEventListener("fetch", (e) => {
   const response = caches.match(e.request).then((res) => {
     let response = null;
