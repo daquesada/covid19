@@ -9,20 +9,17 @@ const APP_SHELL = [
   "manifest.json",
   "asset-manifest.json",
   "static/js/2.77706537.chunk.js",
-  "static/js/2.77706537.chunk.js.map",
-  "static/js/main.8b7a45d7.chunk.js",
-  "static/js/main.8b7a45d7.chunk.js.map",
-  "static/js/runtime-main.2f9f3538.js",
-  "static/js/runtime-main.2f9f3538.js.map",
+
+  // "static/js/2.77706537.chunk.js.map",
+  // "static/js/main.8b7a45d7.chunk.js",
+  // "static/js/main.8b7a45d7.chunk.js.map",
+  // "static/js/runtime-main.2f9f3538.js",
+  // "static/js/runtime-main.2f9f3538.js.map",
+
   "https://corona-api.com/countries",
 ];
 
-const APP_SHELL_INMUTABLE = [
-  "static/css/2.86846cc5.chunk.css",
-  "static/css/2.86846cc5.chunk.css.map",
-  "static/css/main.144267e9.chunk.css",
-  "static/css/main.144267e9.chunk.css.map",
-];
+const APP_SHELL_INMUTABLE = ["static/css/2.86846cc5.chunk.css"];
 
 function updateDynamicCache(dynamicCache, request, response) {
   if (response.ok) {
@@ -39,11 +36,13 @@ function updateDynamicCache(dynamicCache, request, response) {
 self.addEventListener("install", (e) => {
   const cacheInmutable = caches
     .open(INMUTABLE_CACHE)
-    .then((cache) => cache.addAll(APP_SHELL_INMUTABLE));
+    .then((cache) => cache.addAll(APP_SHELL_INMUTABLE))
+    .catch((e) => console.log("Works"));
 
   const cacheStatic = caches
     .open(STATIC_CACHE)
-    .then((cache) => cache.addAll(APP_SHELL));
+    .then((cache) => cache.addAll(APP_SHELL))
+    .catch((e) => console.log("Works2"));
 
   e.waitUntil(Promise.all([cacheInmutable, cacheStatic]));
 });
